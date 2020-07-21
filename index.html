@@ -196,6 +196,15 @@
     
     <p>Hello Gelis edit on 2017/11/21.</p>
     
+    <script>
+        $(function() {
+        var rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi;
+        jQuery.htmlPrefilter = function( html ) {
+            return html.replace( rxhtmlTag, "<$1></$2>" );
+        };
+    });
+    </script>
+    
 </body>
 
 </html>
